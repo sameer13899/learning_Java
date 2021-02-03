@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
-public class Test9 {
-    private static int findFirstIndex(int input[], int x, int i) {
-        if (i == input.length) {
+public class Test10 {
+    private static int findLastIndex(int input[], int x, int i) {
+        if (i < 0) {
             return -1;
         }
         if (input[i] == x)
             return i;
-        int smallAns = findFirstIndex(input, x, i + 1);
+        int smallAns = findLastIndex(input, x, i - 1);
         return smallAns;
     }
 
-    public static int findFirstIndex(int input[], int x) {
-        return findFirstIndex(input, x, 0);
+    public static int findLastIndex(int input[], int x) {
+        return findLastIndex(input, x, input.length - 1);
     }
 
     public static void main(String[] args) {
@@ -23,6 +23,6 @@ public class Test9 {
             a[i] = in.nextInt();
         }
         int x = in.nextInt();
-        System.out.print(findFirstIndex(a, x));
+        System.out.print(findLastIndex(a, x));
     }
 }
